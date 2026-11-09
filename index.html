@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#101a21">
-  <title>Рифт: быстрый бой</title>
+  <title>Dota: битва древних</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101a21'/%3E%3Cpath d='m32 5 7 19 20 8-20 8-7 19-7-19-20-8 20-8z' fill='%2376e5d1'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,7 +12,7 @@
   <main class="game-shell">
     <canvas id="game" aria-label="Поле боя"></canvas>
     <header class="topbar">
-      <div class="brand"><span class="brand-mark">✦</span><div><b>РИФТ</b><small>ОДИНОЧНЫЙ БОЙ</small></div></div>
+      <div class="brand"><span class="brand-mark">✦</span><div><b>DOTA · БИТВА</b><small>ФАНАТСКИЙ СИМУЛЯТОР</small></div></div>
       <div class="match-info"><span class="live-dot"></span><span id="match-state">ПОДГОТОВКА</span><i></i><strong id="clock">00:00</strong></div>
       <div class="score"><span class="blue-dot"></span><b id="kills">0</b><span class="score-sep">:</span><b id="deaths">0</b><span class="red-dot"></span></div>
       <button class="icon-btn" id="sound-btn" aria-label="Звук">♫</button>
@@ -20,18 +20,18 @@
     </header>
     <div class="objective"><span class="objective-icon">◆</span><span id="objective-text">УНИЧТОЖЬТЕ ВРАЖЕСКИЙ ДРЕВНИЙ</span><div class="objective-progress"><span id="progress-fill"></span></div></div>
     <section class="hero-panel">
-      <div class="hero-avatar"><span>✦</span><i></i></div>
-      <div class="hero-stats"><div class="hero-name">АРКАНИСТ <small>УРОВЕНЬ <b id="level">1</b></small></div><div class="bar hp"><span id="hp-fill"></span><b id="hp-label">640 / 640</b></div><div class="bar mana"><span id="mana-fill"></span><b id="mana-label">300 / 300</b></div></div>
+      <div class="hero-avatar pudge-avatar"><span>☠</span><i></i></div>
+      <div class="hero-stats"><div class="hero-name">ПУДЖ <small>УРОВЕНЬ <b id="level">1</b></small></div><div class="bar hp"><span id="hp-fill"></span><b id="hp-label">760 / 760</b></div><div class="bar mana"><span id="mana-fill"></span><b id="mana-label">300 / 300</b></div></div>
       <div class="gold-box"><span>◈</span><b id="gold">250</b><small>ЗОЛОТО</small></div>
     </section>
     <div class="hint" id="hint">Ведите героя джойстиком или нажмите на поле</div>
     <div class="controls">
       <div class="joystick" id="joystick" aria-label="Джойстик движения"><div class="joy-ring"></div><div class="joy-knob" id="joy-knob"></div></div>
       <div class="ability-row">
-        <button class="ability" data-skill="bolt"><span class="key">Q</span><i class="spell bolt-icon">ϟ</i><b>РАЗРЯД</b><small id="cd-bolt"></small></button>
-        <button class="ability" data-skill="nova"><span class="key">W</span><i class="spell nova-icon">✺</i><b>ВСПЫШКА</b><small id="cd-nova"></small></button>
-        <button class="ability" data-skill="heal"><span class="key">E</span><i class="spell heal-icon">✚</i><b>ЛЕЧЕНИЕ</b><small id="cd-heal"></small></button>
-        <button class="ability ultimate" data-skill="ult"><span class="key">R</span><i class="spell ult-icon">☄</i><b>МЕТЕОР</b><small id="cd-ult"></small></button>
+        <button class="ability" data-skill="bolt"><span class="key">Q</span><i class="spell bolt-icon">↗</i><b>МЯСНОЙ КРЮК</b><small id="cd-bolt"></small></button>
+        <button class="ability" data-skill="nova"><span class="key">W</span><i class="spell nova-icon">☣</i><b>ГНИЕНИЕ</b><small id="cd-nova"></small></button>
+        <button class="ability" data-skill="heal" title="Flesh Heap"><span class="key">E</span><i class="spell heal-icon">✚</i><b>FLESH HEAP</b><small id="cd-heal"></small></button>
+        <button class="ability ultimate" data-skill="ult"><span class="key">R</span><i class="spell ult-icon">☠</i><b>РАСЧЛЕНЕНИЕ</b><small id="cd-ult"></small></button>
       </div>
       <button class="attack-btn" id="attack-btn"><span>⚔</span><b>АТАКА</b></button>
     </div>
@@ -40,9 +40,9 @@
       <div class="modal-card">
         <div class="eyebrow"><span></span> БЫСТРАЯ ИГРА · ОФФЛАЙН</div>
         <div class="modal-emblem">✦</div>
-        <h1 id="modal-title">РИФТ<span>БЕЗ ОЖИДАНИЯ</span></h1>
-        <p id="modal-copy">Короткая одиночная MOBA-партия. Соберите отряд, пробейте оборону и разрушьте древний — прямо сейчас.</p>
-        <div class="modal-facts"><div><b>03:00</b><small>ДО ПЕРВОЙ ВОЛНЫ</small></div><div><b>1 герой</b><small>ПОД ВАШИМ КОНТРОЛЕМ</small></div><div><b>0 сети</b><small>ИГРАЕТСЯ ОФФЛАЙН</small></div></div>
+        <h1 id="modal-title">ПУДЖ<span>ЗОВЁТ НА БОЙ</span></h1>
+        <p id="modal-copy">Сразитесь за Пуджа: цепляйте врагов Мясным крюком, окутывайте их Гниением и добейте ультимейтом. Враг — Axe.</p>
+        <div class="modal-facts"><div><b>ПУДЖ</b><small>ВАШ ГЕРОЙ</small></div><div><b>AXE</b><small>ВРАЖЕСКИЙ ГЕРОЙ</small></div><div><b>0 сети</b><small>ИГРАЕТСЯ ОФФЛАЙН</small></div></div>
         <button id="start-btn" class="primary-btn">НАЧАТЬ БОЙ <span>→</span></button>
         <div class="modal-foot">WASD / джойстик — движение <i>·</i> Q W E R — способности</div>
       </div>
